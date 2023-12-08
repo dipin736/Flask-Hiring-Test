@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <table class="table table-bordered bg-light shadow p-3 mb-5 bg-white rounded">
+        <thead class="thead-dark">
+            <tr>
+                <th>Product</th>
+                <th>Warehouse</th>
+                <th>Qty</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for location, balances in balances.items() %}
+            
+                {% for product, qty in balances.items() %}
+                    <tr>
+                        <td>{{ product }}</td>
+                        <td>{{location}}</td>
+                        <td>{{ qty }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
+
+
